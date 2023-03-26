@@ -46,7 +46,7 @@ public class Vector extends Point{
         //xyz.d1=t* xyz.d1;
        // xyz.d2=t* xyz.d2;
        // xyz.d3=t* xyz.d3;
-        return (t*xyz.d1,t*xyz.d2,t*xyz.d3);
+        return new Vector (t*xyz.d1,t*xyz.d2,t*xyz.d3);
     }
     public int dotProduct(Vector v)
     {
