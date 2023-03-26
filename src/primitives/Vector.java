@@ -39,7 +39,7 @@ public class Vector extends Point{
     }
     public Vector add(Vector v)
     {
-
+        return new Vector (xyz.d1+v.xyz.d1,xyz.d2+v.xyz.d2,xyz.d3+v.xyz.3);
     }
     public Vector scale(int t)
     {
