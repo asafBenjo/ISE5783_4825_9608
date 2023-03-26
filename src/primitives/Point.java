@@ -10,7 +10,7 @@ public class Point
    final Double3 xyz;
     public Point (double x,double y,double z)
     {
-        xyz=new Double3(x,y,z)
+        xyz=new Double3(x,y,z);
     }
 
     Point (Double3 doubie)
@@ -36,19 +36,19 @@ public class Point
         return Objects.hash(xyz);
     }
 
-    @Override
+    //@Override
     public Vector subtract(Point point)
     {
         return new Vector(point.xyz.subtract(xyz));
     }
 
-    @Override
+    //@Override
     public Point add(Vector v)
     {
       return new Point(xyz.add(v.xyz));
     }
 
-    @Override
+    //@Override
     public double distanceSquared(Point p)
     {
         double dx=(xyz.d1-p.xyz.d1);
@@ -57,7 +57,7 @@ public class Point
         return dx*dx+dy*dy+dz*dz;
     }
 
-    @Override
+    //@Override
     public double distance(Point p2)
     {
         return Math.sqrt(distanceSquared(p2));

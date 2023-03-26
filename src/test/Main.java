@@ -1,16 +1,15 @@
-
 package test;
 import static java.lang.System.out;
-        import static primitives.Util.isZero;
+import static primitives.Util.isZero;
 
-        import primitives.Point;
-        import primitives.Vector;
+import primitives.Point;
+import primitives.Vector;
 
 /** Test program for the 1st stage
  * @author Dan Zilberstein */
 public final class Main {
 
-    /** test.Main program to tests initial functionality of the 1st stage
+    /** Main program to tests initial functionality of the 1st stage
      * @param args irrelevant here */
     public static void main(String[] args) {
 
@@ -88,4 +87,3 @@ public final class Main {
         out.println("If there were no any other outputs - all tests succeeded!");
     }
 }
-עןא

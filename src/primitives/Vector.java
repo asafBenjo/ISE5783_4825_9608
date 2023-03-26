@@ -2,14 +2,14 @@ package primitives;
 
 import primitives.Point;
 
-class Vector extends Point{
+public class Vector extends Point{
 
     public Vector (double x,double y,double z)
     {
         super(x,y,z);
         if(xyz.equals(primitives.Double3.ZERO))
         {
-            throw new IllegalArgumentException("vector canoot be zero")
+            throw new IllegalArgumentException("vector canoot be zero");
         }
     }
     Vector (primitives.Double3 double3)
@@ -36,5 +36,32 @@ class Vector extends Point{
     {
         double len=length();
         return new Vector(xyz.reduce(len));
+    }
+    public Vector add(Vector v)
+    {
+
+    }
+    public Vector scale(int t)
+    {
+        //xyz.d1=t* xyz.d1;
+       // xyz.d2=t* xyz.d2;
+       // xyz.d3=t* xyz.d3;
+        return (t*xyz.d1,t*xyz.d2,t*xyz.d3);
+    }
+    public int dotProduct(Vector v)
+    {
+
+    }
+    public Vector crossProduct(Vector v)
+    {
+
+    }
+    public double lengthSquared()
+    {
+
+    }
+    public double length()
+    {
+throw new RuntimeException("not implemented");
     }
 }
