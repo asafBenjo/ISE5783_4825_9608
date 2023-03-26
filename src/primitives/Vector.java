@@ -39,18 +39,15 @@ public class Vector extends Point{
     }
     public Vector add(Vector v)
     {
-        return new Vector (xyz.d1+v.xyz.d1,xyz.d2+v.xyz.d2,xyz.d3+v.xyz.3);
+        return new Vector (xyz.d1+v.xyz.d1,xyz.d2+v.xyz.d2,xyz.d3+v.xyz.d3);
     }
     public Vector scale(int t)
     {
-        //xyz.d1=t* xyz.d1;
-       // xyz.d2=t* xyz.d2;
-       // xyz.d3=t* xyz.d3;
         return new Vector (t*xyz.d1,t*xyz.d2,t*xyz.d3);
     }
-    public int dotProduct(Vector v)
+    public double dotProduct(Vector v)
     {
-
+        return (v.xyz.d1*xyz.d1+v.xyz.d2*xyz.d2+v.xyz.d3*xyz.d3);
     }
     public Vector crossProduct(Vector v)
     {
