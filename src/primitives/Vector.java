@@ -53,12 +53,4 @@ public class Vector extends Point{
     {
 
     }
-    public double lengthSquared()
-    {
-
-    }
-    public double length()
-    {
-throw new RuntimeException("not implemented");
-    }
 }

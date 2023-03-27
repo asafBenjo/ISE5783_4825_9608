@@ -1,4 +1,8 @@
 package geometries;
 
-public class Geometry {
+public interface Geometry {
+    public Vector getNormal(Point p)
+    {
+
+    }
 }
