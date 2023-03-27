@@ -7,7 +7,7 @@ public class Triangle extends Polygon
 {
     public Triangle (Point x,Point y,Point z)
     {
-        Polygon (x);
+      //  vertices=(x,y,z);
     }
     public Vector getNormal(Point p) {
         return null;
