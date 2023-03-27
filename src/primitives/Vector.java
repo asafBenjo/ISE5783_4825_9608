@@ -1,56 +1,85 @@
+/**
+ * Vector class
+ *
+ * @author 2021
+ */
 package primitives;
 
 import primitives.Point;
-
+/**
+ * Vector class represents a vector in 3D Cartesian coordinate system
+ */
 public class Vector extends Point {
 
     public Vector(double x, double y, double z) {
         super(x, y, z);
-        if (xyz.equals(primitives.Double3.ZERO)) {
+        if (xyz.equals(Double3.ZERO)) {
             throw new IllegalArgumentException("vector canoot be zero");
         }
     }
-
-    Vector(primitives.Double3 double3) {
-        this(double3.d1, double3.d1, double3.d1);
+    /**
+     * constructor for Vector
+     * @param xyz
+     */
+    Vector(Double3 xyz) {
+        super(xyz);
+        if (xyz.equals(Double3.ZERO)) {
+            throw new IllegalArgumentException("vector canoot be zero");
+        }
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public double lengthSquared() {
-        double dx = xyz.d1;
-        double dy = xyz.d2;
-        double dz = xyz.d3;
-        return dx * dx + dy * dy + dz * dz;
+        double dx = xyz.d1 * xyz.d1;
+        double dy = xyz.d2 * xyz.d2;
+        double dz = xyz.d3 * xyz.d3;
+        return dx + dy + dz;
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public double length() {
         return Math.sqrt(lengthSquared());
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Vector v)) return false;
-        return xyz.equals(v.xyz);
+        return (o instanceof Vector v) && xyz.equals(v.xyz);
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public Vector normalize() {
-        double len = length();
-        return new Vector(xyz.reduce(len));
+        return new Vector(xyz.reduce(length()));
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public Vector add(Vector v) {
         return new Vector(xyz.d1 + v.xyz.d1, xyz.d2 + v.xyz.d2, xyz.d3 + v.xyz.d3);
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public Vector scale(int t) {
         return new Vector(t * xyz.d1, t * xyz.d2, t * xyz.d3);
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public double dotProduct(Vector v) {
         return (v.xyz.d1 * xyz.d1 + v.xyz.d2 * xyz.d2 + v.xyz.d3 * xyz.d3);
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public Vector crossProduct(Vector v) {
-        return new Vector(xyz.d2 * v.xyz.d3 - xyz.d3 * v.xyz.d2, xyz.d3 * v.xyz.d1 - xyz.d1 * v.xyz.d3, xyz.d1 * v.xyz.d2 - xyz.d2 * v.xyz.d1);
+        return new Vector(xyz.d2 * v.xyz.d3 - xyz.d3 * v.xyz.d2,
+                xyz.d3 * v.xyz.d1 - xyz.d1 * v.xyz.d3,
+                xyz.d1 * v.xyz.d2 - xyz.d2 * v.xyz.d1);
     }
 
 }

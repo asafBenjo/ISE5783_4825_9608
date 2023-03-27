@@ -1,40 +1,60 @@
 package primitives;
-
+/**
+ * Point is a class that represents a point in 3D Cartesian coordinate system
+ */
 import primitives.Double3;
 import primitives.Vector;
 
 import java.util.Objects;
 
 public class Point {
+    /**
+     * xyz is a point in 3D Cartesian coordinate system
+     */
     final Double3 xyz;
-
+/**
+     * constructor for Point
+     * @param x
+     * @param y
+     * @param z
+     */
     public Point(double x, double y, double z) {
         xyz = new Double3(x, y, z);
     }
-
-    Point(Double3 doubie) {
-        this(doubie.d1, doubie.d2, doubie.d3);
+    /**
+     * constructor for Point
+     * @param xyz
+     */
+    Point(Double3 xyz) {
+        this.xyz = xyz;
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     @Override
     public String toString() {
         return "Point: " + xyz;
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Point point)) return false;
-        return xyz.equals(point.xyz);
+        return (o instanceof Point point) && (xyz.equals(point.xyz));
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     @Override
     public int hashCode() {
         return Objects.hash(xyz);
     }
-
+/**
+     * @return the x coordinate of the point
+     */
     public Vector subtract(Point point) {
-        return new Vector(point.xyz.subtract(xyz));
+        return new Vector(xyz.subtract(point.xyz));
     }
 
     /**
@@ -44,7 +64,10 @@ public class Point {
     public Point add(Vector v) {
         return new Point(xyz.add(v.xyz));
     }
-
+/**
+     * @param p
+     * @return the distance squared between the point and the point p
+     */
     //@Override
     public double distanceSquared(Point p) {
         double dx = (xyz.d1 - p.xyz.d1);
@@ -52,7 +75,10 @@ public class Point {
         double dz = (xyz.d3 - p.xyz.d3);
         return dx * dx + dy * dy + dz * dz;
     }
-
+/**
+     * @param p
+     * @return the distance between the point and the point p
+     */
     //@Override
     public double distance(Point p2) {
         return Math.sqrt(distanceSquared(p2));

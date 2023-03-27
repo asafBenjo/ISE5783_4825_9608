@@ -1,0 +1,144 @@
+Index: src/geometries/Plane.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package geometries;\r\n\r\nimport primitives.Point;\r\nimport primitives.Vector;\r\n\r\npublic class Plane {\r\n    Point q0;\r\n    Vector normal;\r\n\r\n    public Plane(Point x, Point y, Point z) {\r\n        normal = null;\r\n    }\r\n\r\n    public Plane(Point x, Vector norm) {\r\n        q0 = x;\r\n        normal = norm;\r\n    }\r\n\r\n    public void getNormal() {\r\n\r\n    }\r\n\r\n    public Vector getNormal(Point p) {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/geometries/Plane.java b/src/geometries/Plane.java
+--- a/src/geometries/Plane.java	(revision eee094b9989c225cf1100a4901c48ac66f8d9cc7)
++++ b/src/geometries/Plane.java	(date 1679945026951)
+@@ -8,6 +8,7 @@
+     Vector normal;
+ 
+     public Plane(Point x, Point y, Point z) {
++        q0=x;
+         normal = null;
+     }
+ 
+@@ -21,6 +22,6 @@
+     }
+ 
+     public Vector getNormal(Point p) {
+-
++         return null;
+     }
+ }
+Index: src/geometries/Sphere.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package geometries;\r\n\r\nimport primitives.Point;\r\n/**\r\n * Sphere class represents a sphere in 3D Cartesian coordinate system\r\n */\r\npublic class Sphere {\r\n    /**\r\n     * center of the sphere\r\n     */\r\n    Point center;\r\n    /**\r\n     * radius of the sphere\r\n     */\r\n    double radius;\r\n    Sphere(Point center, double radius) {\r\n        this.center = center;\r\n        this.radius = radius;\r\n    }\r\n    /**\r\n     * @return the center of the sphere\r\n     *\r\n     */\r\n    public Point getCenter() {\r\n        return center;\r\n    }\r\n    /**\r\n     * @return the radius of the sphere\r\n     *\r\n     */\r\n    public double getRadius() {\r\n        return radius;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/geometries/Sphere.java b/src/geometries/Sphere.java
+--- a/src/geometries/Sphere.java	(revision eee094b9989c225cf1100a4901c48ac66f8d9cc7)
++++ b/src/geometries/Sphere.java	(date 1679942183024)
+@@ -1,21 +1,22 @@
+ package geometries;
+ 
+ import primitives.Point;
++import primitives.Vector;
+ /**
+  * Sphere class represents a sphere in 3D Cartesian coordinate system
+  */
+-public class Sphere {
++public class Sphere extends RadialGeometry{
+     /**
+      * center of the sphere
+      */
+-    Point center;
++    private Point center;
+     /**
+      * radius of the sphere
+      */
+     double radius;
+-    Sphere(Point center, double radius) {
+-        this.center = center;
+-        this.radius = radius;
++    public Sphere(Point center, double radius) {
++        center = center;
++        radius = radius;
+     }
+     /**
+      * @return the center of the sphere
+Index: src/geometries/Cylinder.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package geometries;\r\n\r\npublic class Cylinder extends Tube {\r\n    private double height;\r\n\r\n    public Cylinder(double radius, double height) {\r\n        super(radius);\r\n        this.height = height;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/geometries/Cylinder.java b/src/geometries/Cylinder.java
+--- a/src/geometries/Cylinder.java	(revision eee094b9989c225cf1100a4901c48ac66f8d9cc7)
++++ b/src/geometries/Cylinder.java	(date 1679941562010)
+@@ -1,7 +1,8 @@
+ package geometries;
+ 
++import primitives.Ray;
+ public class Cylinder extends Tube {
+-    private double height;
++   final private double height;
+ 
+     public Cylinder(double radius, double height) {
+         super(radius);
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d3f38f75-b81b-45cb-8c03-00dc2f29dd93\" name=\"Changes\" comment=\"stage1 process part 2\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/geometries/Cylinder.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/geometries/Cylinder.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/geometries/Geometry.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/geometries/Geometry.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/geometries/Plane.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/geometries/Plane.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/geometries/Polygon.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/geometries/Polygon.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/geometries/RadialGeometry.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/geometries/RadialGeometry.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/geometries/Sphere.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/geometries/Sphere.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/geometries/Triangle.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/geometries/Triangle.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/geometries/Tube.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/geometries/Tube.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/primitives/Double3.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/primitives/Double3.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/primitives/Point.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/primitives/Point.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/primitives/Ray.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/primitives/Ray.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/primitives/Util.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/primitives/Util.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/primitives/Vector.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/primitives/Vector.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2NXshMTByoya8XsxwX0MAXLEsTQ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/my-pc/IdeaProjects/ISE5783_4825_9608&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\my-pc\\IdeaProjects\\ISE5783_4825_9608\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d3f38f75-b81b-45cb-8c03-00dc2f29dd93\" name=\"Changes\" comment=\"\" />\r\n      <created>1679821882653</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1679821882653</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00001\" summary=\"stage1 process\">\r\n      <created>1679822674026</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679822674026</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00002\" summary=\"stage1 process part 2\">\r\n      <created>1679844374171</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679844374171</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00003\" summary=\"update\">\r\n      <created>1679845455722</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679845455722</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00004\" summary=\"update\">\r\n      <created>1679916748718</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679916748718</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00005\" summary=\"update\">\r\n      <created>1679917155269</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679917155269</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00006\" summary=\"update\">\r\n      <created>1679921540528</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679921540528</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00007\" summary=\"update\">\r\n      <created>1679923523917</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679923523917</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"stage1 process\" />\r\n    <MESSAGE value=\"stage1 process part 2\" />\r\n    <MESSAGE value=\"update\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"update\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision eee094b9989c225cf1100a4901c48ac66f8d9cc7)
++++ b/.idea/workspace.xml	(date 1679946314409)
+@@ -5,21 +5,9 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="d3f38f75-b81b-45cb-8c03-00dc2f29dd93" name="Changes" comment="stage1 process part 2">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/geometries/RadialGeometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/RadialGeometry.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/primitives/Double3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Double3.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/primitives/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Util.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -117,7 +105,14 @@
+       <option name="project" value="LOCAL‎" />
+       <updated>1679923523917</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL‎-00008" summary="stage1 process part 2">
++      <created>1679941433356</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL‎-00008" />
++      <option name="project" value="LOCAL‎" />
++      <updated>1679941433356</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -133,8 +128,8 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="stage1 process" />
+-    <MESSAGE value="stage1 process part 2" />
+     <MESSAGE value="update" />
+-    <option name="LAST_COMMIT_MESSAGE" value="update" />
++    <MESSAGE value="stage1 process part 2" />
++    <option name="LAST_COMMIT_MESSAGE" value="stage1 process part 2" />
+   </component>
+ </project>
+\ No newline at end of file

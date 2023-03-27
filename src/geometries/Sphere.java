@@ -1,5 +1,8 @@
 package geometries;
-
+/**
+ * Sphere is a class that represents a sphere
+ */
+import primitives.Vector;
 import primitives.Point;
 /**
  * Sphere class represents a sphere in 3D Cartesian coordinate system
@@ -30,5 +33,12 @@ public class Sphere {
      */
     public double getRadius() {
         return radius;
+    }
+    /**
+     * @param p
+     * @return the normal to the sphere in the point p
+     */
+    public Vector getNormal(Point p) {
+        return null;
     }
 }

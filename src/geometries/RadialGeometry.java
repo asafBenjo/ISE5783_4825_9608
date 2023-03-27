@@ -14,4 +14,11 @@ public abstract class RadialGeometry {
     public RadialGeometry(double num) {
         radius = num;
     }
+    /**
+     * @return the radius of the geometry
+     *
+     */
+    public double getRadius() {
+        return radius;
+    }
 }
