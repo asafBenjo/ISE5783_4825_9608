@@ -6,7 +6,7 @@ import static primitives.Util.isZero;
  * @author Dan Zilberstein */
 public class Double3 {
     /** First number */
-     double                d1;
+    double d1;
     /** Second number */
      double                d2;
     /** Third number */

@@ -2,9 +2,11 @@ package geometries;
 
 import primitives.Point;
 import primitives.Vector;
+
 public interface Geometry {
-    public default Vector getNormal(Point p)
-    {
-        return null;
-    }
+    /**
+     * @param p
+     * @return the normal to the geometry in the point p
+     */
+    Vector getNormal(Point p);
 }

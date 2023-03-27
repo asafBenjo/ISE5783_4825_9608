@@ -1,10 +1,17 @@
 package geometries;
 
+/**
+ * RadialGeometry is an abstract class that represents a geometry with a radius
+ */
 public abstract class RadialGeometry {
     protected double radius;
 
-    public RadialGeometry(double num)
-    {
-        radius=num;
+    /**
+     * RadialGeometry constructor
+     *
+     * @param num
+     */
+    public RadialGeometry(double num) {
+        radius = num;
     }
 }

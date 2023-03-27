@@ -1,0 +1,44 @@
+Index: src/geometries/Geometry.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package geometries;\r\n\r\nimport primitives.Point;\r\nimport primitives.Vector;\r\npublic interface Geometry {\r\n    public Vector getNormal(Point p)\r\n    {\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/geometries/Geometry.java b/src/geometries/Geometry.java
+--- a/src/geometries/Geometry.java	
++++ b/src/geometries/Geometry.java	
+@@ -5,5 +5,6 @@
+ public interface Geometry {
+     public Vector getNormal(Point p)
+     {
++
+     }
+ }
+Index: src/geometries/Plane.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package geometries;\r\n\r\nimport primitives.Point;\r\nimport primitives.Vector;\r\n\r\npublic class Plane {\r\n    Point q0;\r\n    Vector normal;\r\n    public Plane(Point x,Point y,Point z)\r\n    {\r\n        normal=null;\r\n    }\r\n    public Plane(Point x, Vector norm)\r\n    {\r\n        q0=x;\r\n        normal=norm;\r\n    }\r\n\r\n    public void getNormal()\r\n    {\r\n\r\n    }\r\n\r\n    public Vector getNormal(Point p)\r\n    {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/geometries/Plane.java b/src/geometries/Plane.java
+--- a/src/geometries/Plane.java	
++++ b/src/geometries/Plane.java	
+@@ -16,13 +16,13 @@
+         normal=norm;
+     }
+ 
+-    public void getNormal()
++     public void getNormal()
+     {
+-
++        return null;
+     }
+ 
+     public Vector getNormal(Point p)
+     {
+-
++        return getNormal();
+     }
+ }
