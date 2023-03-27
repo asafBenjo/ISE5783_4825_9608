@@ -3,6 +3,8 @@ package primitives;
 import primitives.Point;
 import primitives.Vector;
 
+import java.util.Objects;
+
 public class Ray {
     private final  Point p0;
     private final  Vector dir;
@@ -21,5 +23,18 @@ public class Ray {
         return dir;
     }
 
+    @Override
+    public String toString() {
+        return "Ray{" +
+                "p0=" + p0 +
+                ", dir=" + dir +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ray ray)) return false;
+        return Objects.equals(p0, ray.p0) && Objects.equals(dir, ray.dir);
+    }
 }

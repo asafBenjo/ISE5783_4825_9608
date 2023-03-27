@@ -1,0 +1,71 @@
+Index: src/primitives/Vector.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package primitives;\r\n\r\nimport primitives.Point;\r\n\r\npublic class Vector extends Point{\r\n\r\n    public Vector (double x,double y,double z)\r\n    {\r\n        super(x,y,z);\r\n        if(xyz.equals(primitives.Double3.ZERO))\r\n        {\r\n            throw new IllegalArgumentException(\"vector canoot be zero\");\r\n        }\r\n    }\r\n    Vector (primitives.Double3 double3)\r\n    {\r\n       this(double3.d1,double3.d1,double3.d1);\r\n    }\r\n    public double lengthSquared()\r\n    {\r\n        double dx=xyz.d1;\r\n        double dy=xyz.d2;\r\n        double dz=xyz.d3;\r\n        return dx*dx+dy*dy+dz*dz;\r\n    }\r\n    public double length()\r\n    {\r\n        return Math.sqrt(lengthSquared());\r\n    }\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (!(o instanceof Vector v)) return false;\r\n        return xyz.equals(v.xyz);\r\n    }\r\n    public Vector normalize()\r\n    {\r\n        double len=length();\r\n        return new Vector(xyz.reduce(len));\r\n    }\r\n    public Vector add(Vector v)\r\n    {\r\n        return new Vector (xyz.d1+v.xyz.d1,xyz.d2+v.xyz.d2,xyz.d3+v.xyz.3);\r\n    }\r\n    public Vector scale(int t)\r\n    {\r\n        //xyz.d1=t* xyz.d1;\r\n       // xyz.d2=t* xyz.d2;\r\n       // xyz.d3=t* xyz.d3;\r\n        return new Vector (t*xyz.d1,t*xyz.d2,t*xyz.d3);\r\n    }\r\n    public int dotProduct(Vector v)\r\n    {\r\n\r\n    }\r\n    public Vector crossProduct(Vector v)\r\n    {\r\n\r\n    }\r\n    public double lengthSquared()\r\n    {\r\n\r\n    }\r\n    public double length()\r\n    {\r\nthrow new RuntimeException(\"not implemented\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/primitives/Vector.java b/src/primitives/Vector.java
+--- a/src/primitives/Vector.java	
++++ b/src/primitives/Vector.java	
+@@ -39,13 +39,11 @@
+     }
+     public Vector add(Vector v)
+     {
+-        return new Vector (xyz.d1+v.xyz.d1,xyz.d2+v.xyz.d2,xyz.d3+v.xyz.3);
++        return new Vector (xyz.d1+v.xyz.d1,xyz.d2+v.xyz.d2, xyz.d3+v.xyz.d3);
+     }
+     public Vector scale(int t)
+     {
+-        //xyz.d1=t* xyz.d1;
+-       // xyz.d2=t* xyz.d2;
+-       // xyz.d3=t* xyz.d3;
++
+         return new Vector (t*xyz.d1,t*xyz.d2,t*xyz.d3);
+     }
+     public int dotProduct(Vector v)
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d3f38f75-b81b-45cb-8c03-00dc2f29dd93\" name=\"Changes\" comment=\"stage1 process part 2\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2NXshMTByoya8XsxwX0MAXLEsTQ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/my-pc/IdeaProjects/ISE5783_4825_9608&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\my-pc\\IdeaProjects\\ISE5783_4825_9608\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d3f38f75-b81b-45cb-8c03-00dc2f29dd93\" name=\"Changes\" comment=\"\" />\r\n      <created>1679821882653</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1679821882653</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00001\" summary=\"stage1 process\">\r\n      <created>1679822674026</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679822674026</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00002\" summary=\"stage1 process part 2\">\r\n      <created>1679844374171</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1679844374171</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"stage1 process\" />\r\n    <MESSAGE value=\"stage1 process part 2\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"stage1 process part 2\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d3f38f75-b81b-45cb-8c03-00dc2f29dd93" name="Changes" comment="stage1 process part 2" />
++    <list default="true" id="d3f38f75-b81b-45cb-8c03-00dc2f29dd93" name="Changes" comment="stage1 process part 2">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -65,7 +68,21 @@
+       <option name="project" value="LOCAL‎" />
+       <updated>1679844374171</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL‎-00003" summary="stage1 process part 2">
++      <created>1679844678049</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL‎-00003" />
++      <option name="project" value="LOCAL‎" />
++      <updated>1679844678049</updated>
++    </task>
++    <task id="LOCAL‎-00004" summary="stage1 process part 2">
++      <created>1679844881792</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL‎-00004" />
++      <option name="project" value="LOCAL‎" />
++      <updated>1679844881792</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
