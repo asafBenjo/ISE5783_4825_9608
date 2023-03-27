@@ -15,14 +15,16 @@ public class Plane {
         q0=x;
         normal=norm;
     }
-
-    public void getNormal()
+    public Point getPoint()
     {
-
+        return q0;
     }
-
+    public Vector getNormal()
+    {
+        return normal;
+    }
     public Vector getNormal(Point p)
     {
-
+        return null;
     }
 }
