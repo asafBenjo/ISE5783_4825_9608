@@ -1,7 +1,6 @@
 package geometries;
 
 import primitives.Point;
-import primitives.Vector;
 
 public class Sphere {
     Point center;
@@ -16,9 +15,5 @@ public class Sphere {
     }
     public double getRadius() {
         return radius;
-    }
-    public Vector getNormal(Point p)
-    {
-
     }
 }
