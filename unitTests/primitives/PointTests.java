@@ -17,15 +17,17 @@ class PointTests {
     }
     @Test
     void testAdd() {
-        assertEquals(new Point(2,3,4),new Point(1,1,1).add(new Vector(1,2,3)),
+        assertEquals(new Point(2,3,4),p.add(new Vector(1,2,3)),
                 "Wrong point add");
     }
 
     @Test
     void testDistanceSquared() {
+        assertEquals(14,p.distanceSquared(new Point(2,3,4)),"Wrong distance squared");
     }
 
     @Test
     void testDistance() {
+        assertEquals(3.7416573867739413,p.distance(new Point(2,3,4)),"Wrong distance");
     }
 }
