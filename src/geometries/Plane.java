@@ -23,7 +23,12 @@ public class Plane {
      * @param z
      */
     public Plane(Point x, Point y, Point z) {
-        normal = null;
+        q0 = x;
+        Vector U = x.subtract(y);
+        Vector V = x.subtract(z);
+        Vector N = U.crossProduct(V);
+        q0 = x;
+        this.normal = N.normalize();
     }
 /**
      * constructor for Plane

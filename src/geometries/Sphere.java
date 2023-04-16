@@ -39,6 +39,7 @@ public class Sphere {
      * @return the normal to the sphere in the point p
      */
     public Vector getNormal(Point p) {
-        return null;
+
+        return center.subtract(p).normalize();
     }
 }

@@ -82,4 +82,8 @@ public class Vector extends Point {
                 xyz.d1 * v.xyz.d2 - xyz.d2 * v.xyz.d1);
     }
 
+    @Override
+    public String toString() {
+        return "Vector: " + xyz;
+    }
 }
