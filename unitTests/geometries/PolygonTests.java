@@ -1,18 +1,4 @@
-package geometries;
-
-import org.junit.jupiter.api.Test;
-import primitives.Point;
-import primitives.Vector;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static primitives.Util.isZero;
-
-class PolygonTests {
-
-    @Test
-    void testGetNormal() {
-    }
-    package unittests.geometries;
+package unittests.geometries;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
