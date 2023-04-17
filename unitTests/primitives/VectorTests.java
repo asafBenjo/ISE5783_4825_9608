@@ -39,4 +39,33 @@ class VectorTests {
         assertThrows(IllegalArgumentException.class, () -> v1.crossProduct(v3),
                 "crossProduct() for parallel vectors does not throw an exception");
     }
+    @Test
+    public void testLengthSquared(){
+        assertEquals(14,(new Vector(1, 2, 3)).lengthSquared(),"wrong length Squared");
+    }
+    @Test
+    public void testLength(){
+    assertEquals(Math.sqrt(14),(new Vector(1, 2, 3)).length(),"wrong length");
+    }
+    @Test
+    public void testAdd(){
+        assertEquals(new Vector(3,3,3),new Vector(1,1,1).add(new Vector(2,2,2)),
+                "wrong vector add");
+    }
+    @Test
+    void testSubtract1() {
+        assertEquals(new Vector(0,-1,4),new Vector(1,1,1).subtract(new Vector(1,2,-3)),"bachalom!!");
+    }
+    @Test
+    void testSubtract2() {
+       Vector v1= new Vector(1,1,1);
+        assertThrows(IllegalArgumentException.class, () -> v1.subtract(v1),"Vector(0,0,0) is not not legal");
+    }
+    @Test
+    void testDotProduct(){
+        Vector v1= new Vector(1,1,1);
+        Vector v2=new Vector(2,3,4);
+        assertEquals(9,v1.dotProduct(v2),"dotProduct() wrong result length ");
+    }
+
 }
