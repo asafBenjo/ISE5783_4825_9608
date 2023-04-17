@@ -3,6 +3,7 @@ package primitives;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PointTests {
 
@@ -22,12 +23,26 @@ class PointTests {
     }
 
     @Test
-    void testDistanceSquared() {
+    void testDistanceSquared1() {
         assertEquals(14,p.distanceSquared(new Point(2,3,4)),"Wrong distance squared");
     }
 
     @Test
+    void testDistanceSquared2() {
+        assertEquals(0d,new Point(1,2,3).distanceSquared(new Point(1,2,3)),0.0001,
+                "Wrong squared distance between the point and itself");
+    }
+
+    @Test
     void testDistance() {
-        assertEquals(3.7416573867739413,p.distance(new Point(2,3,4)),"Wrong distance");
+        assertEquals(Math.sqrt(14),p.distance(new Point(2,3,4)), 0.0001,"Wrong distance");
+        assertEquals(0d,new Point(1,2,3).distance(new Point(1,2,3)),0.0001,
+                "Wrong distance between the point and itself");
+    }
+
+    @Test
+    void testAllDistance() {
+        testDistanceSquared1();
+        testDistanceSquared2();
     }
 }

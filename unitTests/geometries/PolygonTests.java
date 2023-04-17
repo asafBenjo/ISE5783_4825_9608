@@ -85,4 +85,3 @@ import primitives.Vector;
                         "Polygon's normal is not orthogonal to one of the edges");
         }
     }
-}
