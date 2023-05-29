@@ -8,6 +8,7 @@ import primitives.Vector;
 import java.util.Objects;
 
 public class Point {
+    public static final Point ZERO = new Point(0, 0, 0);
     /**
      * xyz is a point in 3D Cartesian coordinate system
      */
@@ -25,7 +26,7 @@ public class Point {
      * constructor for Point
      * @param xyz
      */
-    Point(Double3 xyz) {
+     Point(Double3 xyz) {
         this.xyz = xyz;
     }
 /**
@@ -39,16 +40,17 @@ public class Point {
      * @return the x coordinate of the point
      */
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        return (o instanceof Point point) && (xyz.equals(point.xyz));
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        return (obj instanceof Point p) && xyz.equals(p.xyz);
+
     }
 /**
      * @return the x coordinate of the point
      */
     @Override
     public int hashCode() {
-        return Objects.hash(xyz);
+        return xyz.hashCode();
     }
 /**
      * @return the x coordinate of the point
@@ -70,13 +72,13 @@ public class Point {
      */
     //@Override
     public double distanceSquared(Point p) {
-        double dx = (xyz.d1 - p.xyz.d1);
-        double dy = (xyz.d2 - p.xyz.d2);
-        double dz = (xyz.d3 - p.xyz.d3);
-        return dx * dx + dy * dy + dz * dz;
+        double dx = (p.xyz.d1 - xyz.d1);
+        double dy = (p.xyz.d2 - xyz.d2);
+        double dz = (p.xyz.d3 - xyz.d3);
+        return (dx * dx + dy * dy + dz * dz);
     }
 /**
-     * @param p
+     // @param p//
      * @return the distance between the point and the point p
      */
     //@Override
@@ -84,4 +86,7 @@ public class Point {
         return Math.sqrt(distanceSquared(p2));
     }
 
+    public double getX() {
+        return xyz.d1;
+    }
 }

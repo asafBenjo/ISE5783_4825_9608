@@ -40,9 +40,4 @@ class PointTests {
                 "Wrong distance between the point and itself");
     }
 
-    @Test
-    void testAllDistance() {
-        testDistanceSquared1();
-        testDistanceSquared2();
-    }
 }

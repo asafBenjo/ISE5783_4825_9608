@@ -1,4 +1,13 @@
 package geometries;
+
+import primitives.Point;
+import primitives.Ray;
+import primitives.Vector;
+
+import java.util.List;
+
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
 /**
  * Plane is a class that represents a plane
  */
@@ -23,7 +32,7 @@ public class Plane {
      * @param z
      */
     public Plane(Point x, Point y, Point z) {
-        q0 = x;
+        this.q0 = x;
         Vector U = x.subtract(y);
         Vector V = x.subtract(z);
         Vector N = U.crossProduct(V);
@@ -36,8 +45,8 @@ public class Plane {
      * @param norm
      */
     public Plane(Point x, Vector norm) {
-        q0 = x;
-        normal = norm;
+        this.q0 = x;
+        this.normal = norm.normalize();
     }
 /**
      * @return the normal to the plane
@@ -51,5 +60,18 @@ public class Plane {
      */
     public Vector getNormal(Point p) {
         return normal;
+    }
+    public List<Point> findIntersections(Ray ray){
+        Vector p0Q;
+        try {
+            p0Q = q0.subtract(ray.getP0());
+        } catch (IllegalArgumentException e) {
+            return null; // ray starts from point Q - no intersections
+        }
+        double nv = normal.dotProduct(ray.getDir());
+        if (isZero(nv)) // ray is parallel to the plane - no intersections
+            return null;
+        double t = alignZero(normal.dotProduct(p0Q) / nv);
+        return t <= 0 ? null : List.of(ray.getPoint(t));
     }
 }

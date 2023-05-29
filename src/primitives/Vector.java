@@ -15,15 +15,15 @@ public class Vector extends Point {
         super(x, y, z);
         if (xyz.equals(Double3.ZERO)) {
             throw new IllegalArgumentException("vector canoot be zero");
-        }
+       }
     }
     /**
      * constructor for Vector
      * @param xyz
      */
-    Vector(Double3 xyz) {
+    public Vector(Double3 xyz) {
         super(xyz);
-        if (xyz.equals(Double3.ZERO)) {
+        if (this.xyz.equals(Double3.ZERO)) {
             throw new IllegalArgumentException("vector canoot be zero");
         }
     }
@@ -34,7 +34,7 @@ public class Vector extends Point {
         double dx = xyz.d1 * xyz.d1;
         double dy = xyz.d2 * xyz.d2;
         double dz = xyz.d3 * xyz.d3;
-        return dx + dy + dz;
+        return (dx + dy + dz);
     }
 /**
      * @return the x coordinate of the point
@@ -59,13 +59,13 @@ public class Vector extends Point {
      * @return the x coordinate of the point
      */
     public Vector add(Vector v) {
-        return new Vector(xyz.d1 + v.xyz.d1, xyz.d2 + v.xyz.d2, xyz.d3 + v.xyz.d3);
+        return new Vector(xyz.add(v.xyz));
     }
 /**
      * @return the x coordinate of the point
      */
-    public Vector scale(int t) {
-        return new Vector(t * xyz.d1, t * xyz.d2, t * xyz.d3);
+    public Vector scale(double t) {
+        return new Vector(xyz.scale(t));
     }
 /**
      * @return the x coordinate of the point
@@ -82,8 +82,9 @@ public class Vector extends Point {
                 xyz.d1 * v.xyz.d2 - xyz.d2 * v.xyz.d1);
     }
 
-    @Override
     public String toString() {
-        return "Vector: " + xyz;
+    return "Vector{" +
+            "xyz=" + xyz +
+            '}';
     }
 }

@@ -14,6 +14,8 @@ import primitives.Vector;
 
 import java.util.Objects;
 
+import static primitives.Util.isZero;
+
 public class Ray {
     /**
      * p0 is the point of the ray
@@ -30,8 +32,8 @@ public class Ray {
      */
    public Ray (Point p,Vector v)
    {
-    p0=p;
-    dir=v.normalize();
+    this.p0=p;
+    this.dir=v.normalize();
    }
 /**
      * @return the point of the ray
@@ -45,10 +47,7 @@ public class Ray {
     public Vector getDir() {
         return dir;
     }
-/**
-     * @return the string of the ray
-     */
-    @Override
+
     public String toString() {
         return "Ray{" +
                 "p0=" + p0 +
@@ -59,8 +58,26 @@ public class Ray {
      * @return the string of the ray
      */
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        return (o instanceof Ray ray)&&Objects.equals(p0, ray.p0) && Objects.equals(dir, ray.dir);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        return (obj instanceof Ray ray)&&Objects.equals(p0, ray.p0) && Objects.equals(dir, ray.dir);
     }
+    public Point getPoint(double t) {
+        if (isZero(t)) {
+            return p0;
+        }
+        return p0.add(dir.scale(t));
+    }
+/**
+     * @return the string of the ray
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(p0, dir);
+    }
+/**
+     * @return the string of the ray
+     */
+
+
 }
